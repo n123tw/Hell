@@ -1,4 +1,0 @@
-MOV A, 21
-MOV B, 11
-PUSH A
-PUSH B
