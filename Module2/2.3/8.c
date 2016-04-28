@@ -18,12 +18,8 @@ case '/': result=a/b;
           break;
 case '^': result=pow(a,b);
           break;
-case '%': 
-{
-printf("Введите число, процент от которого вы хотите узнать:\n"); //как поменять порядок?
-result=a/b*100;
+case '%': result=a/b*100;
           break;
-}
 }
 printf("=%.9f\n", result);
 return 0;
