@@ -1,0 +1,32 @@
+mov A,5    ;введите нужное число
+
+call fact
+
+hlt
+
+fact:
+
+ cmp A,0
+ jnz mike
+ add A,1
+
+mike:
+ cmp A,1
+ jz ed
+ push A
+ sub A,1
+ mov B,A
+ pop A
+
+
+luk:
+ mul B
+ sub B,1
+ CMP B,0
+ jnz luk
+
+ed:
+ push A
+ pop A
+
+ret
