@@ -1,0 +1,133 @@
+JMP START
+
+
+START:
+
+ MOV A,5            ;ввод нужного числа* (мov A,*)
+
+ cmp A,5
+ ja ERRORR
+ push A
+ call PRINT
+ pop A
+ call FACT
+ call MAX
+ call finish
+
+ERRORR:               ;фиксация возможных ошибок
+call error
+hello: DB "error"
+       DB 0
+error:
+ mov C,hello
+ mov D,232
+ mov B,0
+er: 
+ mov A,[C]
+ mov [D],A
+ inc C
+ inc D
+ cmp B,[C]
+ jnz er
+ 
+finish:                      ;завершение
+HLT
+
+
+
+
+PRINT:                       ;вывод хода вычислений
+
+ mov D,236
+ add A,48
+ mov [232],A
+ cmp A,48
+ jnz next
+ add A,1
+
+next:
+ mov [233],33
+ mov [234],61
+ mov [235],A
+
+circle:
+ cmp A,49
+ jz aa
+ sub A,1
+ mov [D],42
+ inc D
+ mov [D],A
+ inc D
+ jmp circle
+
+aa:
+ mov [D],61
+RET
+
+
+
+FACT:                       ;рассчет факториала(from 2.6)
+ 
+ cmp A,0
+ jnz mike
+ add A,1
+
+mike:
+ cmp A,1
+ jz ed
+ push A
+ sub A,1
+ mov B,A
+ pop A
+
+luk:
+ mul B
+ sub B,1
+ CMP B,0
+ jnz luk
+
+ed:
+ push A
+ pop A
+RET
+
+
+
+MAX:                      ;вывод резульатата(from 2.5)
+ inc D
+ push A
+ div 100
+ cmp A,0
+ jz ben
+ add A,48
+ mov [D],A        
+ inc D
+ sub A,48
+ mov C,5
+
+ben:        
+ mul 100
+ mov B,A
+ pop A
+ sub A,B
+ push A
+ div 10
+ cmp C,5
+ jz bob
+ cmp A,0
+ jz cris
+
+bob:
+ add A,48
+ mov [D],A         
+ inc D
+ sub A,48
+
+cris: 
+ mul 10
+ mov B,A
+ pop A
+ sub A,B
+ add A,48
+ mov [D],A
+RET
