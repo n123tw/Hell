@@ -7,6 +7,6 @@ int size;
 printf("Введите строку: \n");
 scanf("%s", string);
 size=strlen(string);
-printf("Резмер введённой строки %d байт\n", size);
+printf("Размер введённой строки %d байт\n", size);
   return 0;
 }
