@@ -4,7 +4,7 @@ int main()
 {
 float a,b, result;
 char command;
-printf("Введите команду (например, '7+3'):\n");
+printf("Введите команду (например, '13+37'):\n");
 scanf("%f%c%f", &a,&command,&b);
 switch(command)
 {
@@ -21,6 +21,6 @@ case '^': result=pow(a,b);
 case '%': result=a/b*100;
           break;
 }
-printf("=%.9f\n", result);
+printf("=%.2f\n", result);
 return 0;
 }
