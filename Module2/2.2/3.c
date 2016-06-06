@@ -6,7 +6,7 @@ char string[100000];
 int size;
 printf("Введите строку: \n");
 scanf("%s", string);
-size=strlen(string);
+size=sizeof(string);
 printf("Размер введённой строки %d байт\n", size);
   return 0;
 }
